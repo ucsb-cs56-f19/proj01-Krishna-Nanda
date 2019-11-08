@@ -39,7 +39,7 @@ public class HomePageTest {
                 .andExpect(xpath(BootstrapLiterals.bootstrapCSSXpath).exists());
         for (String s: BootstrapLiterals.bootstrapJSurls) {
             String jsXPath = String.format("//script[@src='%s']",s);
-            mvc.perform(MockMvcRequestBuilders.get("/greeting").accept(MediaType.TEXT_HTML))
+            mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
               .andExpect(status().isOk())
               .andExpect(xpath(jsXPath).exists());
         }
@@ -51,6 +51,6 @@ public class HomePageTest {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
                 .andExpect(xpath("//title").exists())
-                .andExpect(xpath("//title").string("Getting Started: Serving Web Content"));
+                .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
     }
 }
