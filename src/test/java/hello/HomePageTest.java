@@ -51,6 +51,6 @@ public class HomePageTest {
         mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk())
                 .andExpect(xpath("//title").exists())
-                .andExpect(xpath("//title").string("Getting Started: Serving Web Content"));
+                .andExpect(xpath("//title").string("CS56 Spring Boot Practice App"));
     }
 }
