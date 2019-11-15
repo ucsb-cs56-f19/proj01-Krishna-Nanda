@@ -68,4 +68,12 @@ public class HomePageTest {
                 .andExpect(xpath("/html/body/div/nav/a").exists())
                 .andExpect(xpath("/html/body/div/nav/a").string("lab07"));
     }
+    
+    @Test
+    public void getHomePage_hasCorrectFirstLink() throws Exception {
+                mvc.perform(MockMvcRequestBuilders.get("/").accept(MediaType.TEXT_HTML))
+                .andExpect(status().isOk())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").exists())
+                .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").string("Earthquakes"));
+    }
 }
