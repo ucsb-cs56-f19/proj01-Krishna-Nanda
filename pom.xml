@@ -133,7 +133,11 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- Test coverage ( https://www.eclemma.org/jacoco/ )-->
         <dependency>
             <groupId>org.jacoco</groupId>
