@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 public class FeatureCollection {
   private static Logger logger = LoggerFactory.getLogger(FeatureCollection.class);
   public String type;
+  public Metadata metadata;
+
    /**
      * Create a FeatureCollection object from json representation
      * 
