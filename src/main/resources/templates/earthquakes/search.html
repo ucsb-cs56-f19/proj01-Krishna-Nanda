@@ -14,15 +14,15 @@
             <table>
                 <tr class="form-group">
                     <th><label for="distance" class="col-form-label">Distance (km)</label></th>
-                    <td><input type="number" th:field="*{distance}" class="form-control" id="distance"></td>
+                    <td><input type="number" th:field="*{distance}" class="form-control" id="distance" /></td>
                 </tr>
                 <tr class="form-group">
                     <th><label for="minmag" class="col-form-label">Minimum Magnitude</label></th>
-                    <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag"></td>
+                    <td><input type="number" th:field="*{minmag}" class="form-control" id="minmag" /></td>
                 </tr>
             </table>
 
-            <input type="submit" class="btn btn-primary" value="Search">
+            <input type="submit" class="btn btn-primary" value="Search" />
         </form>
 
       <div th:replace="bootstrap/bootstrap_footer.html"></div>

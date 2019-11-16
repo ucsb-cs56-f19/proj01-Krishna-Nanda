@@ -76,4 +76,5 @@ public class HomePageTest {
                 .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").exists())
                 .andExpect(xpath("/html/body/div/nav/div/ul[1]/li[2]/a").string("Earthquakes"));
     }
+    
 }
