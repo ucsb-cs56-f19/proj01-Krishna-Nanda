@@ -7,40 +7,40 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 
 @ControllerAdvice
-<span class="fc" id="L10">public class AuthControllerAdvice {</span>
+<span class="nc" id="L10">public class AuthControllerAdvice {</span>
 
     @Autowired   
     private MembershipService membershipService;
 
     @ModelAttribute(&quot;isLoggedIn&quot;)
     public boolean getIsLoggedIn(OAuth2AuthenticationToken token){
-<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        return token != null;</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        return token != null;</span>
     }
 
     @ModelAttribute(&quot;id&quot;)
     public String getUid(OAuth2AuthenticationToken token){
-<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (token == null) return &quot;&quot;;</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (token == null) return &quot;&quot;;</span>
 <span class="nc" id="L23">        return token.getPrincipal().getAttributes().get(&quot;id&quot;).toString();</span>
     }
 
     @ModelAttribute(&quot;login&quot;)
     public String getLogin(OAuth2AuthenticationToken token){
-<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (token == null) return &quot;&quot;;</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (token == null) return &quot;&quot;;</span>
 <span class="nc" id="L29">        return token.getPrincipal().getAttributes().get(&quot;login&quot;).toString();</span>
     }
 
     @ModelAttribute(&quot;isMember&quot;)
     public boolean getIsMember(OAuth2AuthenticationToken token){
-<span class="fc" id="L34">        return membershipService.isMember(token);</span>
+<span class="nc" id="L34">        return membershipService.isMember(token);</span>
     }
     @ModelAttribute(&quot;isAdmin&quot;)
     public boolean getIsAdmin(OAuth2AuthenticationToken token){
-<span class="fc" id="L38">        return membershipService.isAdmin(token);</span>
+<span class="nc" id="L38">        return membershipService.isAdmin(token);</span>
     }
 
     @ModelAttribute(&quot;role&quot;)
     public String getRole(OAuth2AuthenticationToken token){
-<span class="fc" id="L43">        return membershipService.role(token);</span>
+<span class="nc" id="L43">        return membershipService.role(token);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

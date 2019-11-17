@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OAuthUtils.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab07</a> &gt; <a href="index.source.html" class="el_package">hello</a> &gt; <span class="el_source">OAuthUtils.java</span></div><h1>OAuthUtils.java</h1><pre class="source lang-java linenums">package hello;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
+import org.springframework.security.oauth2.core.user.OAuth2User;
+import org.springframework.security.oauth2.core.user.OAuth2UserAuthority;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
+
+
+/**
+ * Utility methods for testing OAuth protected endpoints.
+ * &lt;a href=&quot;https://github.com/mark-hoogenboom/spring-boot-oauth-testing&quot;&gt;
+ * https://github.com/mark-hoogenboom/spring-boot-oauth-testing
+ * &lt;/a&gt;
+ */
+
+<span class="nc" id="L24">public class OAuthUtils {</span>
+
+    public static OAuth2User createOAuth2User(String name, String email) {
+
+<span class="fc" id="L28">        Map&lt;String, Object&gt; authorityAttributes = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L29">        authorityAttributes.put(&quot;key&quot;, &quot;value&quot;);</span>
+
+<span class="fc" id="L31">        GrantedAuthority authority = new OAuth2UserAuthority(authorityAttributes);</span>
+
+<span class="fc" id="L33">        Map&lt;String, Object&gt; attributes = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L34">        attributes.put(&quot;sub&quot;, &quot;1234567890&quot;);</span>
+<span class="fc" id="L35">        attributes.put(&quot;name&quot;, name);</span>
+<span class="fc" id="L36">        attributes.put(&quot;email&quot;, email);</span>
+
+<span class="fc" id="L38">        Set&lt;GrantedAuthority&gt; authorities = new HashSet&lt;GrantedAuthority&gt;();</span>
+<span class="fc" id="L39">        authorities.add(authority);</span>
+
+<span class="fc" id="L41">        return new DefaultOAuth2User(authorities, attributes, &quot;sub&quot;);</span>
+    }
+
+    public static Authentication getOauthAuthenticationFor(OAuth2User principal) {
+
+<span class="fc" id="L46">        Collection&lt;? extends GrantedAuthority&gt; authorities = principal.getAuthorities();</span>
+
+<span class="fc" id="L48">        String authorizedClientRegistrationId = &quot;my-oauth-client&quot;;</span>
+
+<span class="fc" id="L50">        return new OAuth2AuthenticationToken(principal, authorities, authorizedClientRegistrationId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

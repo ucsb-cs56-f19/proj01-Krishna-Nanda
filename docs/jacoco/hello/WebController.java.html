@@ -10,44 +10,64 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.Map;
 import java.util.HashMap;
+import hello.geojson.FeatureCollection;
+
 
 import com.nimbusds.oauth2.sdk.client.ClientReadRequest;
 
 @Controller
-<span class="fc" id="L17">public class WebController {</span>
+<span class="fc" id="L19">public class WebController {</span>
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
 
     @GetMapping(&quot;/&quot;)
     public String getHomepage(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-<span class="fc" id="L24">        return &quot;index&quot;;</span>
+<span class="fc" id="L26">        return &quot;index&quot;;</span>
     }
 
     @GetMapping(&quot;/login&quot;)
     public String getLoginPage(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
 
-<span class="nc" id="L30">        Map&lt;String, String&gt; urls = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L32">        Map&lt;String, String&gt; urls = new HashMap&lt;&gt;();</span>
 
         // get around an unfortunate limitation of the API
-<span class="nc" id="L33">        @SuppressWarnings(&quot;unchecked&quot;) Iterable&lt;ClientRegistration&gt; iterable = ((Iterable&lt;ClientRegistration&gt;) clientRegistrationRepository);</span>
-<span class="nc" id="L34">        iterable.forEach(clientRegistration -&gt; urls.put(clientRegistration.getClientName(),</span>
-<span class="nc" id="L35">                &quot;/oauth2/authorization/&quot; + clientRegistration.getRegistrationId()));</span>
+<span class="nc" id="L35">        @SuppressWarnings(&quot;unchecked&quot;) Iterable&lt;ClientRegistration&gt; iterable = ((Iterable&lt;ClientRegistration&gt;) clientRegistrationRepository);</span>
+<span class="nc" id="L36">        iterable.forEach(clientRegistration -&gt; urls.put(clientRegistration.getClientName(),</span>
+<span class="nc" id="L37">                &quot;/oauth2/authorization/&quot; + clientRegistration.getRegistrationId()));</span>
 
-<span class="nc" id="L37">        model.addAttribute(&quot;urls&quot;, urls);</span>
-<span class="nc" id="L38">        return &quot;login&quot;;</span>
+<span class="nc" id="L39">        model.addAttribute(&quot;urls&quot;, urls);</span>
+<span class="nc" id="L40">        return &quot;login&quot;;</span>
     }
 
     @GetMapping(&quot;/page1&quot;)
     public String getPage1(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
 
-<span class="nc" id="L44">        return &quot;page1&quot;;</span>
+<span class="nc" id="L46">        return &quot;page1&quot;;</span>
     }
 
     @GetMapping(&quot;/page2&quot;)
     public String getPage2(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken) {
 
-<span class="nc" id="L50">        return &quot;page2&quot;;</span>
+<span class="nc" id="L52">        return &quot;page2&quot;;</span>
+    }
+
+    @GetMapping(&quot;/earthquakes/search&quot;)
+    public String getEarthquakesSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+<span class="fc" id="L58">        return &quot;earthquakes/search&quot;;</span>
+    }
+    @GetMapping(&quot;/earthquakes/results&quot;)
+    public String getEarthquakesResults(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
+            EqSearch eqSearch) {
+<span class="nc" id="L63">                EarthquakeQueryService e =</span>
+                new EarthquakeQueryService();
+<span class="nc" id="L65">            model.addAttribute(&quot;eqSearch&quot;, eqSearch);</span>
+<span class="nc" id="L66">            String json = e.getJSON(eqSearch.getDistance(), eqSearch.getMinmag());</span>
+<span class="nc" id="L67">            model.addAttribute(&quot;json&quot;, json);</span>
+<span class="nc" id="L68">            FeatureCollection featureCollection = FeatureCollection.fromJSON(json);</span>
+<span class="nc" id="L69">        model.addAttribute(&quot;featureCollection&quot;,featureCollection);</span>
+<span class="nc" id="L70">        return &quot;earthquakes/results&quot;;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

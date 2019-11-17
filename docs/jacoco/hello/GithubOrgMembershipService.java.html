@@ -25,28 +25,28 @@ import com.jcabi.http.response.JsonResponse;
 @Service
 public class GithubOrgMembershipService implements MembershipService {
 
-<span class="fc" id="L28">    private Logger logger = LoggerFactory.getLogger(GithubOrgMembershipService.class);</span>
+<span class="nc" id="L28">    private Logger logger = LoggerFactory.getLogger(GithubOrgMembershipService.class);</span>
 
     private String githubOrg;
 
     @Autowired
     private OAuth2AuthorizedClientService clientService;
 
-<span class="fc" id="L35">    public GithubOrgMembershipService(@Value(&quot;${app_github_org}&quot;) String githubOrg) {</span>
-<span class="fc" id="L36">        this.githubOrg = githubOrg;</span>
-<span class="fc" id="L37">        logger.info(&quot;githubOrg=&quot; + githubOrg);</span>
-<span class="fc" id="L38">    }</span>
+<span class="nc" id="L35">    public GithubOrgMembershipService(@Value(&quot;${app_github_org}&quot;) String githubOrg) {</span>
+<span class="nc" id="L36">        this.githubOrg = githubOrg;</span>
+<span class="nc" id="L37">        logger.info(&quot;githubOrg=&quot; + githubOrg);</span>
+<span class="nc" id="L38">    }</span>
 
     /**
      * is current logged in user a member but NOT an admin of the github org
      */
     public boolean isMember(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-<span class="fc" id="L44">        return hasRole(oAuth2AuthenticationToken, &quot;member&quot;);</span>
+<span class="nc" id="L44">        return hasRole(oAuth2AuthenticationToken, &quot;member&quot;);</span>
     }
 
     /** is current logged in user a member of the github org */
     public boolean isAdmin(OAuth2AuthenticationToken oAuth2AuthenticationToken) {
-<span class="fc" id="L49">        return hasRole(oAuth2AuthenticationToken, &quot;admin&quot;);</span>
+<span class="nc" id="L49">        return hasRole(oAuth2AuthenticationToken, &quot;admin&quot;);</span>
     }
 
     /**
@@ -58,8 +58,8 @@ public class GithubOrgMembershipService implements MembershipService {
      */
     
     public boolean hasRole(OAuth2AuthenticationToken oauthToken, String roleToTest) {
-<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (oauthToken == null) {</span>
-<span class="fc" id="L62">            return false;</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (oauthToken == null) {</span>
+<span class="nc" id="L62">            return false;</span>
         }
 <span class="nc" id="L64">        OAuth2User oAuth2User = oauthToken.getPrincipal();</span>
 <span class="nc" id="L65">        String user = (String) oAuth2User.getAttributes().get(&quot;login&quot;);</span>
