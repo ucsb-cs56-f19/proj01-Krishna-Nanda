@@ -3,8 +3,8 @@ A simple Spring Boot webapp using:
 * Pulling in Bootstrap from CDN.
 * Github OAuth
 
-*Link to javadoc https://ucsb-cs56-f19.github.io/lab07-Krishna-Nanda/
-*Link to Heroku https://cs56-f19-lab07-krishna-nanda.herokuapp.com/
+* Link to javadoc https://ucsb-cs56-f19.github.io/lab07-Krishna-Nanda/
+* Link to Heroku https://cs56-f19-lab07-krishna-nanda.herokuapp.com/
 # Running on Localhost.
 
 1.  You *must first* configure a GitHub OAuth app for http://localhost:8080 and obtain the client-id and client-secret.
