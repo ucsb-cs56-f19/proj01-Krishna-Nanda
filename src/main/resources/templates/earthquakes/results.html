@@ -14,6 +14,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>title</th>
                     <th>Count</th>
                     <th>Distance (km)</th>
                     <th>Minimum Magnitude</th>
@@ -21,6 +22,7 @@
             </thead>
             <tbody>
                 <tr>
+                    <td><a th:href="${featureCollection.metadata.url}" th:text="${featureCollection.metadata.title}"></a></td>
                     <td th:text="${featureCollection.metadata.count}"></td>
                     <td th:text="${eqSearch.distance}"></td>
                     <td th:text="${eqSearch.minmag}"></td>
@@ -32,7 +34,6 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>title</th>
                     <th>id</th>
                     <th>place</th>
                     <th>mag</th>
@@ -40,8 +41,7 @@
             </thead>
             <tbody>
                 <tr th:each="f: ${featureCollection.features}">
-                    <td><a th:href="${featureCollection.metadata.url}" th:text="${f.properties.title}"></a></td>
-                    <td><a th:href="${featureCollection.metadata.url}" th:text="${f.id}"></a></td>
+                    <td><a th:href="${f.properties.url}" th:text="${f.id}"></a></td>
                     <td th:text="${f.properties.place}"></td>
                     <td th:text="${f.properties.mag}"></td>
                 </tr>
