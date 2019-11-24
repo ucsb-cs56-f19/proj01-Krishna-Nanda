@@ -64,13 +64,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-	
-  <dependency>
-         <groupId>org.mockito</groupId>
-         <artifactId>mockito-core</artifactId>
-         <version>2.22.0</version>
-         <scope>test</scope>
-  </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,12 +79,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -137,25 +124,6 @@
             <version>3.0.4.RELEASE</version>
         </dependency>
 
-<!-- jpa, crud repository -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.25.0-GA</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/com.jcabi/jcabi-github -->
         <dependency>
             <groupId>com.jcabi</groupId>
@@ -176,12 +144,40 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <!-- Test coverage ( https://www.eclemma.org/jacoco/ )-->
         <dependency>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.5</version>
+        </dependency>
+        <dependency>
+         <groupId>org.mockito</groupId>
+         <artifactId>mockito-core</artifactId>
+         <version>2.22.0</version>
+         <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.25.0-GA</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
         </dependency>
 
     </dependencies>
@@ -286,7 +282,6 @@
             <id>localhost</id>
             <build>
                 <resources>
-             
                     <resource>
                         <directory>src/main/resources</directory>
                     </resource>
@@ -315,7 +310,6 @@
                     </resource>
                     <resource>
                         <directory>src/main/config/heroku</directory>
-             
                     </resource>
                 </resources>
 
@@ -326,7 +320,6 @@
                     <artifactId>postgresql</artifactId>
                 </dependency>
 
-             
                 <dependency>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -334,8 +327,4 @@
             </dependencies>
         </profile>
     </profiles>
-
-
-
-
 </project>
