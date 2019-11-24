@@ -5,6 +5,8 @@ A simple Spring Boot webapp using:
 
 * Link to javadoc https://ucsb-cs56-f19.github.io/lab07-Krishna-Nanda/
 * Link to Heroku https://cs56-f19-lab07-krishna-nanda.herokuapp.com/
+* Link to TravisCi https://travis-ci.org/ucsb-cs56-f19/lab07-Krishna-Nanda
+
 # Running on Localhost.
 
 1.  You *must first* configure a GitHub OAuth app for http://localhost:8080 and obtain the client-id and client-secret.
