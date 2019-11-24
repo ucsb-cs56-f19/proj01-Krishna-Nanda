@@ -3,9 +3,9 @@ A simple Spring Boot webapp using:
 * Pulling in Bootstrap from CDN.
 * Github OAuth
 
-* Link to javadoc https://ucsb-cs56-f19.github.io/lab07-Krishna-Nanda/
-* Link to Heroku https://cs56-f19-lab07-krishna-nanda.herokuapp.com/
-* Link to TravisCi https://travis-ci.org/ucsb-cs56-f19/lab07-Krishna-Nanda
+* Link to javadoc https://ucsb-cs56-f19.github.io/proj01-Krishna-Nanda/
+* Link to Heroku https://cs56-f19-proj01-krishna-nanda.herokuapp.com/
+* Link to TravisCi https://travis-ci.org/ucsb-cs56-f19/proj01-Krishna-Nanda
 
 # Running on Localhost.
 
