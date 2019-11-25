@@ -1,7 +1,6 @@
 package hello;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,10 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.junit.Before;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.authentication;
-
+import hello.controllers.EarthquakesController;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(WebController.class)
+@WebMvcTest(EarthquakesController.class)
 public class EarthquakeSearchTest {
 
     @Autowired
