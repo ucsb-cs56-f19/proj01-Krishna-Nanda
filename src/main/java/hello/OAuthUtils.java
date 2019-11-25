@@ -1,4 +1,4 @@
-package hello;
+package earthquakes;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

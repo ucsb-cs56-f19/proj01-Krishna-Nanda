@@ -1,4 +1,4 @@
-package hello.geojson;
+package earthquakes.geojson;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package hello.geojson;
+package earthquakes.geojson;
 
 public class Properties {
   public double mag;

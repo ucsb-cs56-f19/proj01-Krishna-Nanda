@@ -1,4 +1,4 @@
-package hello.entities;
+package earthquakes.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package hello.geojson;
+package earthquakes.geojson;
 
 public class Metadata {
   public long generated; // need a long for very large ints
