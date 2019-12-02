@@ -26,7 +26,7 @@ public class LocationsController {
     @GetMapping("/locations/search")
     public String getLocationSearch(Model model, OAuth2AuthenticationToken oAuth2AuthenticationToken,
             LocSearch locSearch) {
-                return "/locations/search";
+                return "locations/search";
     }
 
     @GetMapping("/locations/results")
@@ -34,6 +34,6 @@ public class LocationsController {
             LocSearch locSearch) {
         model.addAttribute("locSearch", locSearch);
         // TODO: Actually do the search here and add results to the model
-        return "/locations/results";
+        return "locations/results";
     }
 }
