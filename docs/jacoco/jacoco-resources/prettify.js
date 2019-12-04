@@ -775,7 +775,7 @@ window['_pr_isIE6'] = function () {
     * form 'lang-FOO', where FOO is a language extension describing the
     * language of the portion of the token in $1 after pattern executes.
     * E.g., if style is 'lang-lisp', and group 1 contains the text
-    * '(earthquakes (world))', then that portion of the token will be passed to the
+    * '(hello (world))', then that portion of the token will be passed to the
     * registered lisp handler for formatting.
     * The text before and after group 1 will be restyled using this decorator
     * so decorators should take care that this doesn't result in infinite
