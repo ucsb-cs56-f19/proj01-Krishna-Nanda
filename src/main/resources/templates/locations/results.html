@@ -10,17 +10,43 @@
 
       <h1>Location Search Results</h1>
 
-      <table>
-      <tr>
-          <th>Location</th>
-          <td th:text="${locSearch.location}"></td>
-      </tr>
+      <table class = "table">
+          <thead>
+                <tr>
+                        <th>Location</th>
+                    </tr>
+          </thead>
+          <tbody>
+              <tr>
+                    <td th:text="${locSearch.location}"></td>
+              </tr>
+          </tbody>
+      
   </table>
+  <h2>Location Search Results</h2>
 
-    <h2>JSON Results</h2>
+        <table class = "table">
+            <tr>
+                <th>Place Id</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Display Name</th>
+                <th>Type</th>
+            </tr>
 
-    <pre th:text="${json}">This is placeholder</pre>
+            <tbody>
+                <tr th:each="p: ${place}">
+                        <td th:text="${p.place_id}"></td>
+                        <td th:text="${p.lat}"></td>
+                        <td th:text="${p.lon}"></td>
+                        <td th:text="${p.display_name}"></td>
+                        <td th:text="${p.type}"></td>
+                </tr>
+            </tbody>
+        </table>
+
     
+
       <div th:replace="bootstrap/bootstrap_footer.html"></div>
     </div>
     <div th:replace="bootstrap/bootstrap_scripts.html"></div>
