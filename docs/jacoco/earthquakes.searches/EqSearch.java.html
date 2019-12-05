@@ -3,23 +3,45 @@ public class EqSearch {
 <span class="fc" id="L3">    EqSearch(){</span>
 <span class="fc" id="L4">        distance = 0;</span>
 <span class="fc" id="L5">        minmag = 0;</span>
-<span class="fc" id="L6">    } </span>
+<span class="fc" id="L6">        lat = 0;</span>
+<span class="fc" id="L7">        lon = 0;</span>
+<span class="fc" id="L8">        location = &quot;&quot;;</span>
+<span class="fc" id="L9">    } </span>
 
     public int getDistance(){
-<span class="fc" id="L9">        return distance;</span>
+<span class="fc" id="L12">        return distance;</span>
     }
     public int getMinmag(){
-<span class="fc" id="L12">        return minmag;</span>
+<span class="fc" id="L15">        return minmag;</span>
     }
     public void setDistance(int d){
-<span class="nc" id="L15">        distance = d;</span>
-<span class="nc" id="L16">    }</span>
-    public void setMinmag(int m){
-<span class="nc" id="L18">        minmag = m;</span>
+<span class="nc" id="L18">        distance = d;</span>
 <span class="nc" id="L19">    }</span>
-
+    public void setMinmag(int m){
+<span class="nc" id="L21">        minmag = m;</span>
+<span class="nc" id="L22">    }</span>
+    public double getLat(){
+<span class="fc" id="L24">        return lat;</span>
+    }
+    public double getLon(){
+<span class="fc" id="L27">        return lon;</span>
+    }
+    public String getLocation(){
+<span class="fc" id="L30">        return location;</span>
+    }
+    public void setLat(double d){
+<span class="nc" id="L33">        lat = d;</span>
+<span class="nc" id="L34">    }</span>
+    public void setLon(double d){
+<span class="nc" id="L36">        lon = d;</span>
+<span class="nc" id="L37">    }</span>
+    public void setLocation(String d){
+<span class="nc" id="L39">        location = d;</span>
+<span class="nc" id="L40">    }</span>
     private int distance;
     private int minmag;
-
+    private double lat;
+    private double lon;
+    private String location;
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
