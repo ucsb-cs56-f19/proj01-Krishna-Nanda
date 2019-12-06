@@ -14,7 +14,7 @@ lab07,earthquakes.entities,AppUser,26,0,0,0,7,0,7,0,7,0
 lab07,earthquakes,AuthControllerAdvice,77,0,8,0,17,0,12,0,8,0
 lab07,earthquakes,Application,5,53,0,0,2,17,1,2,1,2
 lab07,earthquakes,OAuthUtils,3,60,0,0,1,13,1,2,1,2
-lab07,earthquakes.controllers,LocationsController,91,0,0,0,22,0,7,0,7,0
+lab07,earthquakes.controllers,LocationsController,121,0,0,0,28,0,8,0,8,0
 lab07,earthquakes.controllers,HomeController,28,5,0,0,6,2,2,2,2,2
 lab07,earthquakes.controllers,UsersController,17,0,0,0,6,0,2,0,2,0
 lab07,earthquakes.controllers,EarthquakesController,35,5,0,0,7,2,1,2,1,2

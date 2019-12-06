@@ -11,7 +11,7 @@ import javax.persistence.Id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long placeId;
+    private long place_id;
     private double lon;
     private double lat;
     private String name;
@@ -39,10 +39,10 @@ import javax.persistence.Id;
 <span class="nc" id="L39">        return name;</span>
     }
     public long getPlaceId(){
-<span class="nc" id="L42">        return placeId;</span>
+<span class="nc" id="L42">        return place_id;</span>
     }
     public void setPlaceId(long l){
-<span class="nc" id="L45">        placeId = l;</span>
+<span class="nc" id="L45">        place_id = l;</span>
 <span class="nc" id="L46">    }</span>
 
    
