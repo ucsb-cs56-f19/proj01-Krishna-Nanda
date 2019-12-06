@@ -55,18 +55,27 @@ public class LocationsController {
         return "locations/results";
     }
     @GetMapping("/locations")
-    public String index(Model model) {
-        Iterable<Location> location = locationRepository.findAll();
+    public String index(Model model,OAuth2AuthenticationToken token) {
+        String uid = token.getPrincipal().getAttributes().get("id").toString();
+        Iterable<Location> location = locationRepository.findByUid(uid);
         model.addAttribute("location", location);
         return "locations/index";
 }
 
     @PostMapping("/locations/add")
-    public String add(Location location, Model model) {
-        Iterable<Location> locations = locationRepository.findAll();
-      locationRepository.save(location);
-      model.addAttribute("location", locations);
+    public String add(Location location, Model model,OAuth2AuthenticationToken token) {
+        String uid = token.getPrincipal().getAttributes().get("id").toString();
+        location.setUid(uid);
+        locationRepository.save(location);
+      model.addAttribute("location", locationRepository.findByUid(uid));
       return "locations/index";
+    }
+
+   @GetMapping("/locations/admin")
+    public String admin(Model model){
+        Iterable<Location> location = locationRepository.findAll();
+        model.addAttribute("location", location);
+        return "locations/admin";
     }
     @DeleteMapping("/locations/delete/{id}")
     public String delete(@PathVariable("id") long id, Model model) {
