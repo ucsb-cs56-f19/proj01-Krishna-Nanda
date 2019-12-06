@@ -45,7 +45,15 @@
                         <td th:text="${p.display_name}"></td>
                         <td th:text="${p.type}"></td>
                         <td><a th:href="@{/earthquakes/search/(lat=${p.lat},lon=${p.lon},location=${p.display_name})}">Get Earthquakes</a></td>
-                        <td>Add</td>
+                        <td>
+                            <form action="#" th:action="@{/locations/add}"  th:object="${location}"  method="post">
+                              <input type="hidden" name="placeId" th:value="${p.place_id}" value=""/>
+                              <input type="hidden" name="lat" th:value="${p.lat}" value=""/>
+                              <input type="hidden" name="lon" th:value="${p.lon}" value=""/>
+                              <input type="hidden" name="name" th:value="${p.display_name}" value=""/>
+                              <input type="submit" class="btn btn-primary" value="Add" />
+                            </form>
+                        </td>
                 </tr>
             </tbody>
         </table>
