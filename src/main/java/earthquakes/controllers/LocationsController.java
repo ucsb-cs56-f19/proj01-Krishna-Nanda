@@ -63,8 +63,9 @@ public class LocationsController {
 
     @PostMapping("/locations/add")
     public String add(Location location, Model model) {
+        Iterable<Location> locations = locationRepository.findAll();
       locationRepository.save(location);
-      model.addAttribute("locations", locationRepository.findAll());
+      model.addAttribute("location", locations);
       return "locations/index";
     }
     @DeleteMapping("/locations/delete/{id}")
