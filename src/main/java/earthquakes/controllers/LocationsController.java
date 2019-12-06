@@ -8,6 +8,7 @@ import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.Map;
 import java.util.HashMap;
 import earthquakes.geojson.FeatureCollection;
@@ -22,13 +23,13 @@ import earthquakes.entities.Location;
 
 @Controller
 public class LocationsController {
-    private LocationRepository locationsrepo;
+    private LocationRepository locationRepository;
 
     @Autowired
     private ClientRegistrationRepository clientRegistrationRepository;
     @Autowired
     public LocationsController(LocationRepository l) {
-        this.locationsrepo = l;   
+        this.locationRepository = l;   
     }
 
     @GetMapping("/locations/search")
@@ -52,8 +53,17 @@ public class LocationsController {
     }
     @GetMapping("/locations")
     public String index(Model model) {
-        Iterable<Location> location = locationsrepo.findAll();
+        Iterable<Location> location = locationRepository.findAll();
         model.addAttribute("location", location);
         return "locations/index";
 }
+
+    @PostMapping("/locations/add")
+    public String add(Location location, Model model) {
+      locationRepository.save(location);
+      model.addAttribute("locations", locationRepository.findAll());
+      return "locations/index";
+    }
+
+
 }
